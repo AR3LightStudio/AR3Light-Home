@@ -1,0 +1,11 @@
+/* The selected homepage: independently timed lift and sideways drift. */
+.yao{--lift:7px;--sway:3.5px;--tilt:.45deg;--rise-time:8.8s;--sway-time:14.2s;--rise-offset:-2.7s;--sway-offset:-5s;--pivot:39% 35%}
+.bureau{--lift:6px;--sway:3px;--tilt:-.35deg;--rise-time:10.2s;--sway-time:16.7s;--rise-offset:-7s;--sway-offset:-1.5s;--pivot:65% 35%}
+.island{--lift:8px;--sway:4px;--tilt:.55deg;--rise-time:9.6s;--sway-time:15.3s;--rise-offset:-5.1s;--sway-offset:-9s;--pivot:30% 55%}
+.road{--lift:7px;--sway:3.5px;--tilt:-.45deg;--rise-time:11.4s;--sway-time:17.6s;--rise-offset:-.8s;--sway-offset:-6s;--pivot:70% 60%}
+.fragment:not(.origin) img{transform-origin:var(--pivot);animation:world-lift var(--rise-time) ease-in-out var(--rise-offset) infinite,world-sway var(--sway-time) ease-in-out var(--sway-offset) infinite;will-change:transform,translate}
+@keyframes world-lift{0%,100%{transform:translate3d(0,var(--lift),0) rotate(var(--tilt))}50%{transform:translate3d(0,calc(-1 * var(--lift)),0) rotate(calc(-1 * var(--tilt)))}}
+@keyframes world-sway{0%,100%{translate:calc(-1 * var(--sway)) 0}50%{translate:var(--sway) 0}}
+.paused .fragment:not(.origin) img{animation-play-state:paused}
+@media(max-width:600px){.fragment{--lift:5.5px;--sway:2.5px}}
+@media(prefers-reduced-motion:reduce){.fragment:not(.origin) img{animation:none;transform:none;translate:none}}
