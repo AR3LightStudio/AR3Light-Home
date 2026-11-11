@@ -40,3 +40,7 @@ dialog[open]{animation:reveal-world .65s ease-out} @keyframes reveal-world{from{
 .scene-art,.fragment img{filter:url(#paper-key);mix-blend-mode:normal}
 .entering .scene-art{filter:url(#paper-key) brightness(1.05)}
 #atmosphere{opacity:1}
+
+/* 2026-11-11: place the lamp-and-spirits entrance above the central lamp. */
+.origin{--x:50%;--y:18%}
+@media(max-width:600px){.origin{--y:31%}}
